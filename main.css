@@ -1,0 +1,130 @@
+body {
+  font-family: Helvetica;
+}
+section.page {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+section.page.active {
+  z-index: 2;
+}
+span.box {
+
+}
+
+/* ===============================> name */
+section.page.name {
+  background: #0098b1;
+  text-align: center;
+}
+section.page.name span.box.name {
+  padding: 0 60px 20px;
+  border-bottom: 3px solid #444;
+  border-radius: 2px;
+  font-size: 3.5em;
+  font-family: Helvetica;
+  font-weight: 600;
+  color: white;
+}
+section.page.name span.box.name::before {
+  content: 'my name is ';
+  font-size: .2em;
+  color: #bd1;
+}
+section.page.name span.box.more {
+  display: block;
+  width: 130px;
+  height: 1.5em;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+section.page.name span.box.more::after {
+  content: ': )';
+  filter: blur(.2px);
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: rotate(90deg);
+}
+section.page.name span.box.more:hover::after {
+  filter: blur(0);
+}
+/* ===============================> name */
+
+/* ===============================> me */
+section.page.me {
+  background: #cc0089;
+  text-align: center;
+  color: white
+}
+/* ===============================> me */
+
+/* ===============================> contact-info */
+section.contact-info {
+  display: block;
+  width: auto;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  color: #ddd;
+  border: 2px solid #bbb;
+  border-radius: 5px;
+  z-index: 999;
+}
+section.contact-info a {
+  display: block;
+  width: auto;
+  height: 1.2em;
+  position: relative;
+  margin: 0 0 5px;
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+section.contact-info a::before {
+  display: inline-block;
+  width: 95px;
+  text-align: right;
+  color: #bbb;
+}
+section.contact-info a:hover::after {
+  content: 'visit';
+  display: block;
+  padding: 3px 5px;
+  position: absolute;
+  top: 0;
+  left: -55px;
+  border-radius: 4px;
+  background: #fff;
+  color: #0098b1;
+  text-align: left;
+}
+section.contact-info a.gmail:hover::after {
+  content: 'Call';
+}
+section.contact-info a.twitter::before {
+  content: 'Twitter :';
+}
+section.contact-info a.github::before {
+  content: 'Github :';
+}
+section.contact-info a.facebook::before {
+  content: 'FaceBook :';
+}
+section.contact-info a.gmail::before {
+  content: 'Gmail :';
+}
+/* ===============================> contact-info */
