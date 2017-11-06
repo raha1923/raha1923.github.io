@@ -14,6 +14,9 @@ section.page.active {
 span.box {
 
 }
+span.point-to {
+  cursor: pointer;
+}
 
 /* ===============================> name */
 section.page.name {
@@ -29,7 +32,8 @@ section.page.name div.background {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('./images/background.jpg');
+  background: url('../images/background.jpg') no-repeat;
+  background-size: 100% 100%;
   filter: blur(4px);
   z-index: 0;
 }
@@ -40,7 +44,7 @@ section.page.name span.box.name {
   display: block;
   width: 8em;
   position: absolute;
-  top: calc(40% - 2em);
+  top: calc(30% - 2em);
   right: 0;
   left: 0;
   margin: auto;
@@ -53,13 +57,26 @@ section.page.name span.box.name {
   font-weight: 600;
   color: white;
 }
+section.page.name span.info-box.box {
+  display: block;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: calc(100% - 2em);
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 0;
+  font-size: 3.5em;
+  color: #00c9d8;
+}
 section.page.name span.box.name::before {
   content: 'my name is ';
   font-size: .2em;
   color: #bd1;
 }
 section.page.name span.box.more {
-  display: block;
+  display: none;
   width: 130px;
   height: 1.5em;
   position: absolute;
@@ -88,6 +105,103 @@ section.page.name span.box.more:hover::after {
   filter: blur(0);
 }
 /* ===============================> name */
+
+/* ===============================> menu */
+section.page.menu {
+  top: 0;
+  left: 0;
+  background: #00c9d8;
+  text-align: center;
+}
+section.page.menu.active {
+  animation: scale;
+  animation-duration: 600ms;
+}
+section.page.menu.active > span,
+section.page.menu.active > div {
+  animation: show;
+  animation-duration: 1600ms;
+}
+section.page.menu div.menu-item {
+  display: block;
+  height: 200px;
+  width: 200px;
+  background: transparent !important;
+  overflow: hidden;
+}
+section.page.menu div.menu-item div.parent {
+  display: block;
+  height: 200px;
+  width: 200px;
+  background: transparent;
+  transform: rotate(-45deg);
+  background: transparent !important;
+  overflow: hidden;
+}
+section.page.menu div.menu-item div.parent div.child {
+  display: block;
+  height: 200px;
+  width: 200px;
+  background: #555;
+  transform: rotate(45deg);
+}
+section.page.menu div.menu-item.about-me {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 220px);
+}
+section.page.menu div.menu-item.about-me  div.parent div.child {
+  background: #73b;
+  color: white;
+  font-size: 2em;
+  line-height: 200px;
+}
+section.page.menu div.menu-item.projects {
+  position: absolute;
+  top: calc(50% + 41px);
+  left: calc(50% - 79px);
+}
+section.page.menu div.menu-item.projects  div.parent div.child {
+  background: #7b3;
+  color: white;
+  font-size: 2em;
+  line-height: 200px;
+}
+section.page.menu div.menu-item.experience {
+  position: absolute;
+  top: calc(50% - 242px);
+  left: calc(50% - 79px);
+}
+section.page.menu div.menu-item.experience  div.parent div.child {
+  background: #b73;
+  color: white;
+  font-size: 2em;
+  line-height: 200px;
+}
+section.page.menu div.menu-item.skills {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% + 62px);
+}
+section.page.menu div.menu-item.skills  div.parent div.child {
+  background: #445;
+  color: white;
+  font-size: 2em;
+  line-height: 200px;
+}
+section.page.menu span.menu-item.home {
+  display: block;
+  height: 83px;
+  width: 83px;
+  position: absolute;
+  top: calc(50% - 41.5px);
+  left: calc(50% - 20px);
+  background: #555;
+  color: #00c9d8;
+  line-height: 80px;
+  font-size: 3em;
+}
+/* ===============================> menu */
 
 /* ===============================> me */
 section.page.me {
@@ -129,36 +243,21 @@ section.contact-info a {
 }
 section.contact-info a::before {
   display: inline-block;
-  width: 95px;
+  width: 1em;
   text-align: right;
   color: #bbb;
 }
-section.contact-info a:hover::after {
-  content: 'visit';
-  display: block;
-  padding: 3px 5px;
-  position: absolute;
-  top: 0;
-  left: -55px;
-  border-radius: 4px;
-  background: #fff;
-  color: #0098b1;
-  text-align: left;
-}
-section.contact-info a.gmail:hover::after {
-  content: 'Call';
-}
 section.contact-info a.twitter::before {
-  content: 'Twitter :';
+  content: '\f081 :';
 }
 section.contact-info a.github::before {
-  content: 'Github :';
+  content: '\f092 :';
 }
 section.contact-info a.facebook::before {
-  content: 'FaceBook :';
+  content: '\f082 :';
 }
 section.contact-info a.gmail::before {
-  content: 'Gmail :';
+  content: '\f1a0 :';
 }
 /* ===============================> contact-info */
 
@@ -217,6 +316,37 @@ section.contact-info a.gmail::before {
     }
     100% {
       text-shadow: none;
+    }
+}
+@keyframes scale {
+    from {
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: 50%;
+    }
+    to {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+}
+@keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+@keyframes hide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display: none;
     }
 }
 /* ===============================> animations */
