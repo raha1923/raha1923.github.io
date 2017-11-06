@@ -227,8 +227,8 @@ section.contact-info {
   right: 10px;
   padding: 10px;
   color: #ddd;
-  border: 2px solid #bbb;
-  border-radius: 5px;
+  background: rgba(200, 200, 200, .3);
+  border-bottom: 2px solid white;
   z-index: 999;
 }
 section.contact-info a {
@@ -240,6 +240,9 @@ section.contact-info a {
   color: inherit;
   text-decoration: none;
   letter-spacing: 1px;
+}
+section.contact-info a:last-of-type {
+  margin: 0;
 }
 section.contact-info a::before {
   display: inline-block;
@@ -319,17 +322,22 @@ section.contact-info a.gmail::before {
     }
 }
 @keyframes scale {
-    from {
+    0% {
       width: 0;
       height: 0;
       top: 50%;
       left: 50%;
+      border-radius: 50%;
     }
-    to {
+    80% {
+      border-radius: 50%;
+    }
+    100% {
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
+      border-radius: 0;
     }
 }
 @keyframes show {
